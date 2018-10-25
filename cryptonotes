@@ -392,4 +392,41 @@ key exchange protocols
 				depends on whether they can recognize each other's primary keys - which is not true in this case 
 			also we can just use the merkle protocol in place of this, as that too doesnt offer MITM protection 
 			
-			
+Digital signature standard 
+	basic requirements 
+		signature must depend on message being signed - i.e. sign should affect entire document - if u have pen signature on paper, then u can just tear part away that has signature on it - that is the area of the message that depends on the signature 	
+			whenever content of document changes, signed document should also change - handwritten case, the sign is always the same 
+		prevent forgery and denial - use info unique to sender - to authenticate the signature - prevent previously discussed mitm attacks 
+		easy to make, recognize and verify signature - otherwise people not willing to use it 
+		computationally infeasible to forge 
+			cannot construct message for existing signature ?? 
+			forge signature on given message 
+		practical to store - should be able to separate signature from document - validity of signature does not depend directly on document, it can be stored elsewhere 
+			??
+	digital signature with pk cryptosystems 
+	
+	digital signature standards 
+		??
+		random key something something? ??? 
+			DIFFERENT NUMBER FOR different messages 
+		KeG - 3 nos - known by all - public parameters 
+			prime number - within L range shit - see slides 	
+			q - prime divisor of p-1 which fits in 160 bits (for SHA1 only)
+			g - see slides 
+		DSS signing 
+			mod q - to limit size to 160 bits 
+			k^-1 - multiplicative inverse of k mod q 
+			s may be 0, depending on k chosen - need to choose another k in that case 	
+				what is probability that s = 0 - 2^-160 - very little
+		verification 
+			extract last 2*160 bits from received data 
+			transmission can change - received != sent data 
+		security - depends on difficulty of discrete log problem 
+			can u derive private key from m||s||r
+			depends on whether u know random number k - if u dont know k then u dont know k^-1
+			and different k used for different messages 
+			2 equations - r and s - and 2 unknowns - k and x - not possible to solve 
+		guard system on known attacks - dont know all possible attack vectors 
+		correctness of model 
+			rmb y = g^x mod p 
+		 	
