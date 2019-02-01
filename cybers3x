@@ -1,0 +1,30 @@
+ATTEND EVERY CLASS 
+LISTEN TO HIM DIPSHIT 
+
+airplane vulnerability 
+
+Lab1 
+q1 obtained by DHCP by VMWARE virtual switch 
+q2 range = 192.168.111.3-254
+q3 Needs to be static as itll change every time it reboots. With a static fixed IP administrators know which IP address to connect to to manage the virtual machine (e.g. via VMWARE vSphere client)
+q4 - Resources need to be restricted to prevent virtual machines from overprovisioning resources and hogging up the hosts resources, leaving other guests with very limited resources 
+q5 - SCREENSHOT 
+q6 - 	thick provision - preallocate space that is specified     
+        	lazy zeroes - allocate but not done anything to space
+        	eager - clear all content - set it to 0s
+	thin - allocate space as needed 
+
+
+
+ESXI - virtualization layer - linux based - hardened environment 
+	can put VM instances here 
+how to connect to ESXI 
+	client server model - like whats being done rn 
+IRL 2 physical machines - client and ESXI server 
+but rn they are virtual machines 
+
+thick provision - preallocate space that is specified 
+	lazy zeroes - allocate but not done anything to space 
+	eager - clear all content - set it to 0s 
+		depends on your usage - 
+thin - allocate space as needed 

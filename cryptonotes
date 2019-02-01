@@ -42,6 +42,26 @@ AES Round function
 
 
 -- missed one lecture 
+CBC 
+	you xor THEN encrypt 
+
+CTR mode 
+	you apply encryption function to key, counter and IV (nonce)
+	then you xor with plaintext 
+	add nonce to increase randomization  
+
+Cipher feedback mode 
+	can be used as crypto hash function - as all parts of the message influence the cipher text 
+	Not possible to recover the original message if one cipher block is lost 
+
+Output feedback mode 
+	cannot be used as crypto hash function - not all parts of the message influence the resulting ciphertext 
+	can recover original message if one cipher block is lost 
+
+dont use 0 as IV - makes ciphertext predictable 
+
+
+
 
 key management for one key ciphers 
 
@@ -429,4 +449,126 @@ Digital signature standard
 		guard system on known attacks - dont know all possible attack vectors 
 		correctness of model 
 			rmb y = g^x mod p 
-		 	
+SECRET SHARING SCHEMES 
+
+
+EMAIL SECURITY 
+	different encryption schemes, need protocol to coordinate them 
+	easy to use too 
+	
+	PGP services 
+		 can be used to exchange session key 
+		Email compatibilty - to ensure that encrypted text corresponds to an ascii character - a 1-1 function to do so 
+		segmentation of messages 
+	why compression before encryption 
+		as comprression removes all traces of language and reduced redundancy - seems like you encrypted gibberish - adds to security 
+		even if substitution cipher is used - u dont really have the statistics to use to break the cipher 
+	key management
+		each user can have more than one key pair
+			advantages - makes it harder to crack
+			disadvantages - receiver needs to know which key should be used for signature verification - add the used public key to transmission, but then size will become large, which is expensive - instead just send an ID for that public key - like the first 16 or 32 bits from your public key 
+		
+
+
+---- MISSED KERBEROS, L19 
+
+L20 
+Tunnel mode in IPSEC = implemented in routers
+	each machine does not know each others addresses - know routers that they need to send to 
+
+IPSEC AH - rsrv - reserved space - dont know the purpose - 
+	secparamindex - for particular segment in sequence, we used particular encryption protocol - this specifies that 
+	seq # - sequence number 
+		if not in database or if already retrieved from database - you deny that packet 
+ESP - ??? 
+	Init vector - used for CBC - may be set as something else if CBC is not used 
+	May be used for encryption only or encryption + auth 
+IKE 
+	key management 
+	used in IPSEC before, not sure if used now 
+	use diffie hellman to estabilish master key - cause authentication done 
+
+IKE 
+2 approaches to estabilishing master key
+	diffie hellman and something else i forgot 
+
+perfect forward secrecy 
+	compormise of current session key does not lead to compromise of earlier secret keys 
+	
+pseudo random function - ? 
+
+IPSEC security association - doesnt last forever 
+
+Phase 1 step 1 - machine sends proposal - supported hash functions and encryption functions 
+
+Nonce in phase 1.1 
+	used for computing keys and mutual authentication 
+phase 1.2 - certificate is optional - not sent unless mentioned in CERTREQ in phase 1.1 
+
+WEB SEC  - SSL 
+	if client server encryption dont match then ssl cant work 
+	alert protocol - every alert has a level - if alert level is high then problem is serious and machine should stop collection - its to inform each other of problems 
+		maintained in table - sent from machine to machine - with protocol header ssl alert
+		 
+	handshaking protocol - to negotiate security parameters 
+		first initiator machine sends syn mesage with list of hashing and encryption protocols supported in order of preference 
+			random number sent used for computation for master key and authentication 	
+			negotiate ssl session - so the sender sends session id 
+		receiver then responds - sends back selected parameters, signed data - data sent to it but signed by the receiver 
+		if server auth failed then terminate connection, send alert message with high level - else move on 
+		client then generates pre-master key, encrypted using pub key of server			server recovers pre-master key 
+		if server requested for client auth, then client sends signed data and encrypted pre-master secret 
+		then both machines use secret and random numbers to compute master key  
+	change of cipher spec message - update sec parameters right after sending this - then other machine sends back acknowledgement message after changing sec parameters 
+		ssl change inserted here 
+		encrypted and authenitcated by CURRENT sec parameters 
+		
+		synchronization process 
+		different from IPSEC - two different sets of parameters used to protect for data flow in 2 different directions 
+		but in ssl, both directions use same protocol 
+	record protocol - used for encryptng and authenticating data - encrypted and hmac-ed 
+			will also protect negotiation messages, such as change protocol, alert messages -
+			so if machine new and record protocol empty then no authentication is done for handshaking messages  
+			app data fragmented, compressed 
+			mac is added 
+			encrypted 
+			appended ssl record header 
+				content type = e.g. change protocol data, application data etc
+				major and minor version 
+				compressed length - size of payload without padding bits - to let other machine know the number of padded bits 
+				
+	SSL connection and session 	
+		connection - transport layer connection 
+			for every connection, machines need to negotiate set of parameters 
+				but this will make it slow
+				solution - make multiple connections share sec parameters - ssl session
+			every connection is associated with one session 
+		session - multiple connections sharing the same sec parameters 
+			avoid expensive negotiation 
+			has secret keys, protocols and random numbers 
+			master key - ? 	
+			resumable - ? 
+			parameters in upper box - dont change for many connection s
+			but connection state may change
+				encryption and auth keys change for every connection
+	Making the master key 
+		message digest function - modified hashing function 
+		remeber - master SECRET does not change, but master key changes? cause the two random numbers change 
+
+	SSL applications
+
+
+VPN 
+	tunneled network made using public network infrastructure 
+	site to site vpn - estabilish secure connection between 2 offices 
+	tunneling protocols 
+		wrapping frames in an extra header to be pased over the internet 
+		PPTP - point to point - tunnel between 2 endpoints 
+		Layer two tunneling protocol - deep link thing 
+		both offer a set of services 
+			for authentication they use point to point protocol
+	VPN servers can also filter data 
+		but if policies too complicated then you put a firewall --- VPN ---- network 
+			firewall will then coordinate 
+
+			
