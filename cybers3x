@@ -27,4 +27,446 @@ thick provision - preallocate space that is specified
 	lazy zeroes - allocate but not done anything to space 
 	eager - clear all content - set it to 0s 
 		depends on your usage - 
-thin - allocate space as needed 
+thin - allocate space as needed
+
+
+types of security attacks 
+
+networks mentioned 
+universities moving to deny all traffics except policy 
+lab computers have direct connection with rest of the network = fixed ip 
+web attack - vulnerable if not using firewalls, using default passwords 
+network scanning - uni has honeypots set up - these show that people are scanning the network constantly 
+malware attack 
+
+email phishing attacks and identity theft - common 
+DNS attack - come back to this later 
+
+internal attack - majority of defense mechanisms stop at firewall - so u can access internal machine to compromise the network 
+	e.g. remote access lab machine, install scanning tools inside
+	lateral move attack 
+botnet 
+
+ransomware and hijacking 
+
+backdoor implanting - 
+
+spoofing - you know  
+dictionary - list of frequently used passwords
+man in the middle - prevalent in WIFI - hacker can set up pineapple, change DNS mapping in wifi network - 
+spamming 
+
+sniffing - 
+
+crackers -  break into computer software
+
+different security layers discussed 
+
+ENISA risk analysis 
+components of risk
+	impact 
+	likelihood 
+theory discussed 
+
+risk management architecture segregation of duties discussed 
+	used in IT audits 
+	RACI discussed 
+conflicts in different roles
+	cant do network monitoring and network administrator - admin and monitoring person can change logs to make it look like nothing is wrong, even if there is an attack going on, for example 
+
+latesthackingnews.com 
+
+ASSIGNMENT 
+
+q1 - whoami - Print  the  user name associated with the current effective user ID. 
+id - Print  user and group information for the specified USER, or (when USER omit‐
+       ted) for the current user.
+q2 /root/ and /root/Desktop 
+q3 10 
+(btw for folder, execute means go inside the folder, list its contents etc)
+q4 - 192.168.111.130 and 00:0c:29:49:7b:13
+q5 - TCP and UDP differences pls 
+q6 (actually q5) - google.fr 
+q7 - -X 
+q8 - (describe 3 way handshake) - ACK flags 
+q9 - HUB and SWITCH - layer 2 
+	router - layer 3 
+
+LAN and WAN discussed - 
+if switch working but outer network connection not there, lab machines can still communicate with each other 
+	DHCP wont work as connection to router not present 
+	can still communicate - as in LAN IP address not necessary 
+		communication goes through mac address 
+		ARP protocol used - resolves IP address to MAC address
+			stored in switch - so switch knows local IP to MAC address 
+
+q10 - capture filters are much more limited and are used to reduce the size of a raw packet capture. display filters are used to hide some packets from the packet list.
+
+Capture filters are set before starting a packet capture and cannot be modified during the capture. Display filters on the other hand do not have this limitation and you can change them on the fly. 
+
+Do capture filters for busy networks
+
+in email - everything is in ASCII - attachments' content types are mentioned using mimetype - encoded in ascii - this is the presentation protocol 
+
+can use telnet to access web pages - like in 4621 for SMTP server 
+
+need handshake in TCP cause it offers reliability 
+
+WIFI labs 
+	wireshark - capture and select wifi interface 
+	to connect to wifi - ssid and password 
+		cant use wifi if you know just the password 
+		SSID - can make router stop broadcasting SSID 
+		can you discover hidden SSID? apparently yes
+			wlan receiver - change to monitor mode 
+			then do tcpdump 
+			look for clear to send packets - this is the router's reply to connected clients - 
+			can get SSID from router - beacon frames (if visible) - but SSID truncated in beacon frame if hidden  
+			can get SSID from client 
+ATTEND EVERY CLASS 
+ATTEND EVERY CLASS 
+LISTEN TO HIM DIPSHIT 
+
+airplane vulnerability 
+
+Lab1 
+q1 obtained by DHCP by VMWARE virtual switch 
+q2 range = 192.168.111.3-254
+q3 Needs to be static as itll change every time it reboots. With a static fixed IP administrators know which IP address to connect to to manage the virtual machine (e.g. via VMWARE vSphere client)
+q4 - Resources need to be restricted to prevent virtual machines from overprovisioning resources and hogging up the hosts resources, leaving other guests with very limited resources 
+q5 - SCREENSHOT 
+q6 - 	thick provision - preallocate space that is specified     
+        	lazy zeroes - allocate but not done anything to space
+        	eager - clear all content - set it to 0s
+	thin - allocate space as needed 
+
+
+
+ESXI - virtualization layer - linux based - hardened environment 
+	can put VM instances here 
+how to connect to ESXI 
+	client server model - like whats being done rn 
+IRL 2 physical machines - client and ESXI server 
+but rn they are virtual machines 
+
+thick provision - preallocate space that is specified 
+	lazy zeroes - allocate but not done anything to space 
+	eager - clear all content - set it to 0s 
+		depends on your usage - 
+thin - allocate space as needed
+
+
+types of security attacks 
+
+networks mentioned 
+universities moving to deny all traffics except policy 
+lab computers have direct connection with rest of the network = fixed ip 
+web attack - vulnerable if not using firewalls, using default passwords 
+network scanning - uni has honeypots set up - these show that people are scanning the network constantly 
+malware attack 
+
+email phishing attacks and identity theft - common 
+DNS attack - come back to this later 
+
+internal attack - majority of defense mechanisms stop at firewall - so u can access internal machine to compromise the network 
+	e.g. remote access lab machine, install scanning tools inside
+	lateral move attack 
+botnet 
+
+ransomware and hijacking 
+
+backdoor implanting - 
+
+spoofing - you know  
+dictionary - list of frequently used passwords
+man in the middle - prevalent in WIFI - hacker can set up pineapple, change DNS mapping in wifi network - 
+spamming 
+
+sniffing - 
+
+crackers -  break into computer software
+
+different security layers discussed 
+
+ENISA risk analysis 
+components of risk
+	impact 
+	likelihood 
+theory discussed 
+
+risk management architecture segregation of duties discussed 
+	used in IT audits 
+	RACI discussed 
+conflicts in different roles
+	cant do network monitoring and network administrator - admin and monitoring person can change logs to make it look like nothing is wrong, even if there is an attack going on, for example 
+
+latesthackingnews.com 
+
+ASSIGNMENT 
+
+q1 - whoami - Print  the  user name associated with the current effective user ID. 
+id - Print  user and group information for the specified USER, or (when USER omit‐
+       ted) for the current user.
+q2 /root/ and /root/Desktop 
+q3 10 
+(btw for folder, execute means go inside the folder, list its contents etc)
+q4 - 192.168.111.130 and 00:0c:29:49:7b:13
+q5 - TCP and UDP differences pls 
+q6 (actually q5) - google.fr 
+q7 - -X 
+q8 - (describe 3 way handshake) - ACK flags 
+q9 - HUB and SWITCH - layer 2 
+	router - layer 3 
+
+LAN and WAN discussed - 
+if switch working but outer network connection not there, lab machines can still communicate with each other 
+	DHCP wont work as connection to router not present 
+	can still communicate - as in LAN IP address not necessary 
+		communication goes through mac address 
+		ARP protocol used - resolves IP address to MAC address
+			stored in switch - so switch knows local IP to MAC address 
+
+q10 - capture filters are much more limited and are used to reduce the size of a raw packet capture. display filters are used to hide some packets from the packet list.
+
+Capture filters are set before starting a packet capture and cannot be modified during the capture. Display filters on the other hand do not have this limitation and you can change them on the fly. 
+
+Do capture filters for busy networks
+
+in email - everything is in ASCII - attachments' content types are mentioned using mimetype - encoded in ascii - this is the presentation protocol 
+
+can use telnet to access web pages - like in 4621 for SMTP server 
+
+need handshake in TCP cause it offers reliability 
+
+LISTEN TO HIM DIPSHIT 
+
+airplane vulnerability 
+
+Lab1 
+q1 obtained by DHCP by VMWARE virtual switch 
+q2 range = 192.168.111.3-254
+q3 Needs to be static as itll change every time it reboots. With a static fixed IP administrators know which IP address to connect to to manage the virtual machine (e.g. via VMWARE vSphere client)
+q4 - Resources need to be restricted to prevent virtual machines from overprovisioning resources and hogging up the hosts resources, leaving other guests with very limited resources 
+q5 - SCREENSHOT 
+q6 - 	thick provision - preallocate space that is specified     
+        	lazy zeroes - allocate but not done anything to space
+        	eager - clear all content - set it to 0s
+	thin - allocate space as needed 
+
+
+
+ESXI - virtualization layer - linux based - hardened environment 
+	can put VM instances here 
+how to connect to ESXI 
+	client server model - like whats being done rn 
+IRL 2 physical machines - client and ESXI server 
+but rn they are virtual machines 
+
+thick provision - preallocate space that is specified 
+	lazy zeroes - allocate but not done anything to space 
+	eager - clear all content - set it to 0s 
+		depends on your usage - 
+thin - allocate space as needed
+
+
+types of security attacks 
+
+networks mentioned 
+universities moving to deny all traffics except policy 
+lab computers have direct connection with rest of the network = fixed ip 
+web attack - vulnerable if not using firewalls, using default passwords 
+network scanning - uni has honeypots set up - these show that people are scanning the network constantly 
+malware attack 
+
+email phishing attacks and identity theft - common 
+DNS attack - come back to this later 
+
+internal attack - majority of defense mechanisms stop at firewall - so u can access internal machine to compromise the network 
+	e.g. remote access lab machine, install scanning tools inside
+	lateral move attack 
+botnet 
+
+ransomware and hijacking 
+
+backdoor implanting - 
+
+spoofing - you know  
+dictionary - list of frequently used passwords
+man in the middle - prevalent in WIFI - hacker can set up pineapple, change DNS mapping in wifi network - 
+spamming 
+
+sniffing - 
+
+crackers -  break into computer software
+
+different security layers discussed 
+
+ENISA risk analysis 
+components of risk
+	impact 
+	likelihood 
+theory discussed 
+
+risk management architecture segregation of duties discussed 
+	used in IT audits 
+	RACI discussed 
+conflicts in different roles
+	cant do network monitoring and network administrator - admin and monitoring person can change logs to make it look like nothing is wrong, even if there is an attack going on, for example 
+
+latesthackingnews.com 
+
+ASSIGNMENT 
+
+q1 - whoami - Print  the  user name associated with the current effective user ID. 
+id - Print  user and group information for the specified USER, or (when USER omit‐
+       ted) for the current user.
+q2 /root/ and /root/Desktop 
+q3 10 
+(btw for folder, execute means go inside the folder, list its contents etc)
+q4 - 192.168.111.130 and 00:0c:29:49:7b:13
+q5 - TCP and UDP differences pls 
+q6 (actually q5) - google.fr 
+q7 - -X 
+q8 - (describe 3 way handshake) - ACK flags 
+q9 - HUB and SWITCH - layer 2 
+	router - layer 3 
+
+LAN and WAN discussed - 
+if switch working but outer network connection not there, lab machines can still communicate with each other 
+	DHCP wont work as connection to router not present 
+	can still communicate - as in LAN IP address not necessary 
+		communication goes through mac address 
+		ARP protocol used - resolves IP address to MAC address
+			stored in switch - so switch knows local IP to MAC address 
+
+q10 - capture filters are much more limited and are used to reduce the size of a raw packet capture. display filters are used to hide some packets from the packet list.
+
+Capture filters are set before starting a packet capture and cannot be modified during the capture. Display filters on the other hand do not have this limitation and you can change them on the fly. 
+
+Do capture filters for busy networks
+
+in email - everything is in ASCII - attachments' content types are mentioned using mimetype - encoded in ascii - this is the presentation protocol 
+
+can use telnet to access web pages - like in 4621 for SMTP server 
+
+need handshake in TCP cause it offers reliability 
+
+ATTEND EVERY CLASS 
+LISTEN TO HIM DIPSHIT 
+
+airplane vulnerability 
+
+Lab1 
+q1 obtained by DHCP by VMWARE virtual switch 
+q2 range = 192.168.111.3-254
+q3 Needs to be static as itll change every time it reboots. With a static fixed IP administrators know which IP address to connect to to manage the virtual machine (e.g. via VMWARE vSphere client)
+q4 - Resources need to be restricted to prevent virtual machines from overprovisioning resources and hogging up the hosts resources, leaving other guests with very limited resources 
+q5 - SCREENSHOT 
+q6 - 	thick provision - preallocate space that is specified     
+        	lazy zeroes - allocate but not done anything to space
+        	eager - clear all content - set it to 0s
+	thin - allocate space as needed 
+
+
+
+ESXI - virtualization layer - linux based - hardened environment 
+	can put VM instances here 
+how to connect to ESXI 
+	client server model - like whats being done rn 
+IRL 2 physical machines - client and ESXI server 
+but rn they are virtual machines 
+
+thick provision - preallocate space that is specified 
+	lazy zeroes - allocate but not done anything to space 
+	eager - clear all content - set it to 0s 
+		depends on your usage - 
+thin - allocate space as needed
+
+
+types of security attacks 
+
+networks mentioned 
+universities moving to deny all traffics except policy 
+lab computers have direct connection with rest of the network = fixed ip 
+web attack - vulnerable if not using firewalls, using default passwords 
+network scanning - uni has honeypots set up - these show that people are scanning the network constantly 
+malware attack 
+
+email phishing attacks and identity theft - common 
+DNS attack - come back to this later 
+
+internal attack - majority of defense mechanisms stop at firewall - so u can access internal machine to compromise the network 
+	e.g. remote access lab machine, install scanning tools inside
+	lateral move attack 
+botnet 
+
+ransomware and hijacking 
+
+backdoor implanting - 
+
+spoofing - you know  
+dictionary - list of frequently used passwords
+man in the middle - prevalent in WIFI - hacker can set up pineapple, change DNS mapping in wifi network - 
+spamming 
+
+sniffing - 
+
+crackers -  break into computer software
+
+different security layers discussed 
+
+ENISA risk analysis 
+components of risk
+	impact 
+	likelihood 
+theory discussed 
+
+risk management architecture segregation of duties discussed 
+	used in IT audits 
+	RACI discussed 
+conflicts in different roles
+	cant do network monitoring and network administrator - admin and monitoring person can change logs to make it look like nothing is wrong, even if there is an attack going on, for example 
+
+latesthackingnews.com 
+
+ASSIGNMENT 
+
+q1 - whoami - Print  the  user name associated with the current effective user ID. 
+id - Print  user and group information for the specified USER, or (when USER omit‐
+       ted) for the current user.
+q2 /root/ and /root/Desktop 
+q3 10 
+(btw for folder, execute means go inside the folder, list its contents etc)
+q4 - 192.168.111.130 and 00:0c:29:49:7b:13
+q5 - TCP and UDP differences pls 
+q6 (actually q5) - google.fr 
+q7 - -X 
+q8 - (describe 3 way handshake) - ACK flags 
+q9 - HUB and SWITCH - layer 2 
+	router - layer 3 
+
+LAN and WAN discussed - 
+if switch working but outer network connection not there, lab machines can still communicate with each other 
+	DHCP wont work as connection to router not present 
+	can still communicate - as in LAN IP address not necessary 
+		communication goes through mac address 
+		ARP protocol used - resolves IP address to MAC address
+			stored in switch - so switch knows local IP to MAC address 
+
+q10 - capture filters are much more limited and are used to reduce the size of a raw packet capture. display filters are used to hide some packets from the packet list.
+
+Capture filters are set before starting a packet capture and cannot be modified during the capture. Display filters on the other hand do not have this limitation and you can change them on the fly. 
+
+Do capture filters for busy networks
+
+in email - everything is in ASCII - attachments' content types are mentioned using mimetype - encoded in ascii - this is the presentation protocol 
+
+can use telnet to access web pages - like in 4621 for SMTP server 
+
+need handshake in TCP cause it offers reliability 
+q11 - do at your own time 
+q12 - 1F:1F:1F:1F:1F
+q13 - 12345678
+
+q14 - en.wikipedia.org/wiki/Landshark
+
